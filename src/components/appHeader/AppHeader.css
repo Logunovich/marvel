@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+.app__container{
+    box-sizing: border-box;
+    width: 1100px;
+    margin: 50px auto;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    color: #9F0013;
+    display: flex;
+    justify-content: space-between;
+}
+
+.app__container-black {
+    color: black;
+}
+
+.app__container_right {
+    color: black;
+}
+
+.app__container_right a{
+    color: black;
+    text-decoration: none;
+}
+
+.app__container_right a:hover{
+    text-decoration: underline;
+}
+
+a.app__container-active {
+    color: #9F0013;    
+}

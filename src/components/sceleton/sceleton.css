@@ -1,0 +1,16 @@
+.sceleton__block {
+    text-align: center;
+    padding: 10px 23px;
+}
+
+.sceleton__block p{
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.sceleton__block_img{
+    padding: 0 20px 0 0;
+}

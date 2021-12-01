@@ -1,0 +1,131 @@
+.randomchar__container{
+    display: flex;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+    align-items: center;
+}
+
+.randomchar__container_left{
+    box-sizing: border-box;
+    height: 250px;
+    padding: 35px 40px;
+    width: 50%;
+    display:flex;
+}
+
+.randomchar__container_left-text{
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    min-width: 270px;
+}
+
+.randomchar__container_left-title{
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.randomchar__container_left-img{
+    margin: 0 30px 0 0;
+}
+
+.randomchar__container_left-text p{
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.randomchar__container_btn{
+    border: none; 
+    outline: none;
+    width: 101px;
+    height: 38px;
+    clip-path: polygon(10px 0%, 100% 0, 100% 28px, 91px 100%, 0 100%, 0% 10px);
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.randomchar__container_btn:disabled {
+    /* filter: grayscale(.5); */
+    opacity: .3;
+}
+
+.randomchar__container_btn:hover{
+    text-decoration: underline;
+}
+
+.randomchar__container_left-left{
+    margin-top: 7px;
+    background-color: #9F0013;
+}
+
+.randomchar__container_left-right{
+    margin-top: 7px;
+    background-color: #5C5C5C;
+    margin-left: 35px;
+}
+
+.randomchar__container_right{
+    width: 50%;
+    background-color: #232222;
+    color: #fff;
+    padding: 40px;
+    position: relative;
+}
+
+.randomchar__container_right-img{
+    position: absolute;
+    top: 60px;
+    left: 380px;
+    z-index: 0;
+}
+
+p.randomchar__container_text {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    z-index: 1;
+    position: relative;
+
+    margin: 2px;
+}
+
+.randomchar__container_left-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    /* object-fit: contain; */
+}
+
+.img__not-found {
+    object-fit: contain;
+}
+
+.buttons__random_char{
+    position: absolute;
+    top: 302px;
+}
+
+.spinner{
+    min-width: 50%;
+}
+
+.randomchar__container_left-error{
+    min-width: 550px;
+    align-items: center;
+    text-align: center;
+}
