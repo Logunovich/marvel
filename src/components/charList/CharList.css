@@ -4,14 +4,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.char_list {
+.char_list { 
     width: 675px;
 }
 
 .randomchar__container_btn-load-more{
     display: block;
     margin: 0 auto;
-    background-color: #9F0013;
+    background-color: #990113;
     clip-path: polygon(10px 0%, 100% 0, 100% 28px, 160px 100%, 0 100%, 0% 10px);
     width: 170px;
     margin-bottom: 40px;
