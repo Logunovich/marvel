@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import './CharList.css';
 import CharListItem from '../charListItem/CharListItem';
 import MarvelService from '../services/MarvelService';
