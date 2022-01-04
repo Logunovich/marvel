@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import './CharInfo.css';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
-import MarvelService from '../services/MarvelService';
+import useMarvelService from '../services/MarvelService';
 import Sceleton from '../sceleton/Sceleton';
 
 const CharInfo = (props) => {
     const [char, setChar] = useState(null),
-          [loading, setLoading] = useState(false),
-          [error, setError] = useState(false),
-           marvelService = new MarvelService(); 
+          [error, setError] = useState(false);
+
+    const {loading, getCharacter} = useMarvelService(); 
 
     useEffect(() => {
         updateChar()
@@ -25,32 +25,18 @@ const CharInfo = (props) => {
         }
 
 
-        onCharLoading();
-
-        marvelService
-            .getCharacter(charId)
+        getCharacter(charId)
             .then(onChatLoaded)
-            .catch(onError);
     }
 
     const onChatLoaded = (char) => {
         setChar(char);
-        setLoading(false)
     }
 
-    const onError = () => {
-        setLoading(false);
-        setError(true)
-    }
-
-    const onCharLoading = () => {
-        setLoading(true) 
-    }
-        
-        const sceleton = char || loading || error ? null : <Sceleton/>;
+        const sceleton = char || loading ? null : <Sceleton/>;
         const errorMessage = error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner /> : null;
-        const content = !(loading || error || !char) ? <View char={char}/> : null;
+        const content = !(loading || !char) ? <View char={char}/> : null;
 
         return (
             <div className="container__info">
