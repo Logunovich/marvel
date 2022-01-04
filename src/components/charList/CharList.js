@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './CharList.css';
 import CharListItem from '../charListItem/CharListItem';
-import MarvelService from '../services/MarvelService';
+import useMarvelService from '../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 
 const CharList = (props) => {
@@ -11,7 +11,7 @@ const CharList = (props) => {
           [newItemLoading, setNewItemLoading] = useState(false),
           [offset, setOffset] = useState(210);    
 
-    const marvelService = new MarvelService();
+    const marvelService = useMarvelService();
 
     const getCharacters = (newArr) => {
         setArr(arr => [...arr, ...newArr]);
