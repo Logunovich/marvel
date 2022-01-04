@@ -7,15 +7,13 @@ import Spinner from '../spinner/Spinner';
 const CharList = (props) => {
 
     const [arr, setArr] = useState([]),
-          [loading, setLoading] = useState(true),
           [newItemLoading, setNewItemLoading] = useState(false),
           [offset, setOffset] = useState(210);    
 
-    const marvelService = useMarvelService();
+    const {loading, getAllCharacters} = useMarvelService();
 
     const getCharacters = (newArr) => {
         setArr(arr => [...arr, ...newArr]);
-        setLoading(false);
         setNewItemLoading(false);
         setOffset(offset => {
             return offset + 9
@@ -28,15 +26,9 @@ const CharList = (props) => {
     }, []);
 
     const onRequest = (offset) => {
-        onCharListLoading();
-        marvelService
-            .getAllCharacters(offset)
-            .then(getCharacters)
-            .catch(() => console.log('error'))
-    }
-
-    const onCharListLoading = () => {
         setNewItemLoading(true);
+        getAllCharacters(offset)
+            .then(getCharacters);
     }
 
         let notFoundImg = ' img__not-found';
