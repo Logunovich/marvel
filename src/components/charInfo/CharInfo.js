@@ -6,7 +6,6 @@ import MarvelService from '../services/MarvelService';
 import Sceleton from '../sceleton/Sceleton';
 
 const CharInfo = (props) => {
-    console.log(props.charId)
     const [char, setChar] = useState(null),
           [loading, setLoading] = useState(false),
           [error, setError] = useState(false),
@@ -19,7 +18,7 @@ const CharInfo = (props) => {
 
 
     const updateChar = () => {  
-        console.log('upd')
+
         const {charId} = props;
         if (!charId) {
             return;
