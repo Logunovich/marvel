@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import './CharInfo.css';
 import Spinner from '../spinner/Spinner';
-import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../services/MarvelService';
 import Sceleton from '../sceleton/Sceleton';
 
 const CharInfo = (props) => {
-    const [char, setChar] = useState(null),
-          [error, setError] = useState(false);
+    const [char, setChar] = useState(null);
 
     const {loading, getCharacter} = useMarvelService(); 
 
@@ -34,7 +32,6 @@ const CharInfo = (props) => {
     }
 
         const sceleton = char || loading ? null : <Sceleton/>;
-        const errorMessage = error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner /> : null;
         const content = !(loading || !char) ? <View char={char}/> : null;
 
@@ -42,7 +39,6 @@ const CharInfo = (props) => {
             <div className="container__info">
                 <div className="char__info_block">
                     {sceleton}
-                    {errorMessage}
                     {spinner}
                     {content}
                 </div>

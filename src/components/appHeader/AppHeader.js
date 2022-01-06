@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './AppHeader.css';
 
 const AppHeader = () => {
@@ -9,11 +9,9 @@ const AppHeader = () => {
             </div>
             <div className="app__container_right">
                 {/* <a href="https:r24.by/" className="app__container-active">Characters</a> / <a href="https:r24.by/">Comics</a></div> */}
-                <Link to="/" className="app__container-active">Characters</Link> / 
-                
-                <Link to="/comics">Comics</Link></div>
-        
-        
+                <NavLink exact activeClassName='app__container-active' to="/">Characters</NavLink> / 
+                <NavLink exact activeClassName='app__container-active' to="/comics">Comics</NavLink>
+            </div>
         </div>
     )
 }

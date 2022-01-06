@@ -42,8 +42,6 @@ const ComicsList = () => {
         )
     })
 
-    console.log(arr)
-
     return (
         <div>
             {isLoading}
