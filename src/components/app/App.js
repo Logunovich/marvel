@@ -3,6 +3,7 @@ import AppHeader from "../appHeader/AppHeader.js";
 import RandomChar from "../randomChar/RandomChar.js";
 import CharList from "../charList/CharList.js";
 import CharInfo from "../charInfo/CharInfo.js";
+import ComicsList from "../comicsList/comicsList.js";
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 import './app.css';
 
@@ -27,6 +28,7 @@ const App = () => {
                     <CharInfo charId={selectedChar}/>
                 </ErrorBoundary>
             </div>
+            <ComicsList/>
         </div>
     )
 }
