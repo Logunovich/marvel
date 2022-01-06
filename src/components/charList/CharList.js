@@ -59,7 +59,8 @@ const CharList = (props) => {
                     className="randomchar__container_btn randomchar__container_btn-load-more"
                     disabled={newItemLoading}
                     onClick={() => onRequest(offset)}>
-                        Load more</button>
+                    Load more
+                </button>
             </div>
             
         )

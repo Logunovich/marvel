@@ -1,31 +1,54 @@
 import { useState, useEffect } from "react";
 import useMarvelService from "../services/MarvelService";
 import Spinner from "../spinner/Spinner";
+import './comicsList.css';
 
 const ComicsList = () => {
     const [arr, setArr] = useState([]);
+    const [offset, setOffset] = useState(0);
     const {loading, getAllComics} = useMarvelService();
+    const [newItemLoading, setNewItemLoading] = useState(false);
 
     useEffect(() => {
         onRequest()
-    }, [])
+    }, []);
+
+    const getComics = (newArr) => {
+        setArr(arr => [...arr, ...newArr]);
+        setNewItemLoading(false);
+        setOffset(offset => {
+            return offset + 8
+        });
+    }
 
     const onRequest = () => {
-        getAllComics()
-            .then(item => setArr(item))
+        setNewItemLoading(true);
+        getAllComics(offset)
+            .then(getComics)
     }
 
     const isLoading = loading ? <Spinner/> : null;
-    const comicsListFinal = arr.map(item => {
+    const comicsListFinal = arr.map((item, id) => {
         return (
-            <p>{item.description}</p>
+            <li className="comics__item" key={id}>
+                    <a href="#">
+                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
+                        <div className="comics__item-name">{item.title}</div>
+                        <div className="comics__item-price">{item.price}</div>
+                    </a>
+                </li>
         )
     })
 
+    console.log(arr)
+
     return (
         <div>
-            <Spinner/>
-            {comicsListFinal}
+            {isLoading}
+            <ul className="comics__grid">
+                {comicsListFinal}
+            </ul>
+            
         </div>
     )
 }
