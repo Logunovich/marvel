@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './AppHeader.css';
 
 const AppHeader = () => {
@@ -7,7 +8,12 @@ const AppHeader = () => {
                 Marvel <span className="app__container-black">information portal</span>
             </div>
             <div className="app__container_right">
-                <a href="https:r24.by/" className="app__container-active">Characters</a> / <a href="https:r24.by/">Comics</a></div>
+                {/* <a href="https:r24.by/" className="app__container-active">Characters</a> / <a href="https:r24.by/">Comics</a></div> */}
+                <Link to="/" className="app__container-active">Characters</Link> / 
+                
+                <Link to="/comics">Comics</Link></div>
+        
+        
         </div>
     )
 }

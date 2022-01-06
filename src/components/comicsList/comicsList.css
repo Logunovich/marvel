@@ -37,7 +37,7 @@
     text-transform: uppercase; 
 }
 
-.comics__item-price:hover{
+.comics__item:hover{
     transform: translateY(-5px);
 }
 
