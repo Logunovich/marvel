@@ -19,7 +19,7 @@ const App = () => {
     return (
         <div className="container">
             <AppHeader/>
-            <RandomChar/>
+            {/* <RandomChar/>
             <div className="main__block">
                 <CharList 
                     charId={selectedChar}
@@ -27,7 +27,7 @@ const App = () => {
                 <ErrorBoundary>
                     <CharInfo charId={selectedChar}/>
                 </ErrorBoundary>
-            </div>
+            </div> */}
             <ComicsList/>
         </div>
     )

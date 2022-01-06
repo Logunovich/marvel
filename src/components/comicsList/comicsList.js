@@ -8,6 +8,7 @@ const ComicsList = () => {
     const [offset, setOffset] = useState(0);
     const {loading, getAllComics} = useMarvelService();
     const [newItemLoading, setNewItemLoading] = useState(false);
+    const [firstLoad, setFirstLoad] = useState(false)
 
     useEffect(() => {
         onRequest()
@@ -16,18 +17,19 @@ const ComicsList = () => {
     const getComics = (newArr) => {
         setArr(arr => [...arr, ...newArr]);
         setNewItemLoading(false);
+        setFirstLoad(true)
         setOffset(offset => {
             return offset + 8
         });
     }
 
-    const onRequest = () => {
+    const onRequest = (offset) => {
         setNewItemLoading(true);
         getAllComics(offset)
             .then(getComics)
     }
 
-    const isLoading = loading ? <Spinner/> : null;
+    const isLoading = loading && !firstLoad ? <Spinner/> : null;
     const comicsListFinal = arr.map((item, id) => {
         return (
             <li className="comics__item" key={id}>
@@ -48,7 +50,12 @@ const ComicsList = () => {
             <ul className="comics__grid">
                 {comicsListFinal}
             </ul>
-            
+            <button 
+                className="randomchar__container_btn randomchar__container_btn-load-more"
+                disabled={newItemLoading}
+                onClick={() => onRequest(offset)}>
+                Load more
+            </button>
         </div>
     )
 }
